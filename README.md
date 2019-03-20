@@ -13,13 +13,13 @@ I'll answer these questions for each items:
 
 ## MD5
 
-- What is it?
+**What is it?**
 
 It is a **one-way** cryptographic function that accepts a message of **any length** as input and returns as output a **fixed-length** digest value to be used for authenticating the original message.
 
 
 
-- How to use it?
+**How to use it?**
 
 ```php
 md5 ( string $str [, bool $raw_output = FALSE ] ) : string
@@ -34,11 +34,15 @@ $hash = md5($str); // e4f58a805a6e1fd0f6bef58c86f9ceb3
 $hash = md5($str, true); // ����Zn�������γ
 ```
 
-- When to use it?
+
+
+**When to use it?**
+
+For non-security cases, e.g. generating random string for file names.
 
 
 
-- When not to use it?
+**When not to use it?**
 
 As php.net says, it is not recommended to use md5 to secure passwords:
 
