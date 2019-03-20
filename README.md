@@ -1,6 +1,6 @@
 # php-hash
 
-I will 
+A complete guide to PHP hash and encryption functions
 
 I'll answer these questions for each items:
 
@@ -13,21 +13,32 @@ I'll answer these questions for each items:
 
 ## MD5
 
-##### What is it?
+- What is it?
 
 It is a **one-way** cryptographic function that accepts a message of **any length** as input and returns as output a **fixed-length** digest value to be used for authenticating the original message.
 
-As php.net says, it is not recommended to use md5 to secure passwords
-
-##### How to use it?
 
 
+- How to use it?
 
-##### When to use it?
+```php
+md5 ( string $str [, bool $raw_output = FALSE ] ) : string
+```
+
+If the optional `$raw_output` is set to true, the plain binary string of the hash will be returned. This is only useful if you need to store or transfer the hash in a binary format.  [🔗](https://stackoverflow.com/a/7811439/3578287)
+
+```php
+$str = 'I love you';
+
+$hash = md5($str); // e4f58a805a6e1fd0f6bef58c86f9ceb3
+$hash = md5($str, true); // ����Zn�������γ
+```
+
+- When to use it?
 
 
 
-##### When not to use it?
+- When not to use it?
 
 As php.net says, it is not recommended to use md5 to secure passwords:
 
