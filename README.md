@@ -1,4 +1,4 @@
-# php-hash
+# PHP Security Functions
 
 A complete guide to PHP hash and encryption functions
 
