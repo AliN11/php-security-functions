@@ -58,7 +58,7 @@ As php.net says, it is not recommended to use md5 to secure passwords:
 
 It is a **one-way** cryptographic function that accepts a message of **any length** as input and returns as output a **fixed-length** (160 bit) digest value to be used for authenticating the original message. It is more secure but slower than MD5
 
-</br>
+
 **How to use it?**
 
   ```php
@@ -74,7 +74,6 @@ $hash = md5($str, true); // �HɇzᗖC��eE���3QW
   ```
 
 
-</br>
 **When to use it**
 
 For non-security cases, e.g. generating random string for file names. 
@@ -82,7 +81,6 @@ For non-security cases, e.g. generating random string for file names.
 Not all hash uses are security-related. Git uses SHA1 to cheaply distinguish between objects. In that case, because the possibility of collision between two documents is incredibly small with SHA1, there really is no justification for the additional space requirement of SHA512 when SHA1 is more than suitable for the task. [🔗](https://stackoverflow.com/a/2640600/3578287) [🔗](https://stackoverflow.com/questions/2640566/why-use-sha1-for-hashing-secrets-when-sha-512-is-more-secure#comment2655203_2640566)
 
 
-</br>
 **When not to use it?**
 
 Similar to [MD5](https://github.com/AliN11/php-security-functions#md5), it is not recommended to use SHA1 to secure passwords.
@@ -98,7 +96,6 @@ SHA-2 (Secure Hash Algorithm 2) is a set of cryptographic hash functions. The SH
 They are **one-way** cryptographic function that accept a message of **any length** as input and return as output a **fixed-length** digest value.
 
 
-</br>
 **How to use it?**
 
 You can use them by php `hash` function:
@@ -111,12 +108,11 @@ You can use them by php `hash` function:
 ```
 
 
-</br>
 **When to use it?**
 
 They are general purpose hash functions. They are good only for non-security cases, e.g. generating random string for file names. 
 
-</br>
+
 **When not to use it?**
 
 Similar to SHA1 and MD5, you should not use them for security cases such as hashing sensitive data. 
@@ -124,7 +120,7 @@ Similar to SHA1 and MD5, you should not use them for security cases such as hash
 > General-purpose hashes have been obsolete for passwords for over a decade. The issue is that they're fast, and passwords have low entropy, meaning brute-force is very easy with any general-purpose hash. You need to use a function which is deliberately slow, like PBKDF2, bcrypt, or scrypt.  [🔗](https://security.stackexchange.com/a/90065/102970)
 
 
-</br>
+
 Other resources:
 
 https://searchsecurity.techtarget.com/definition/MD5
