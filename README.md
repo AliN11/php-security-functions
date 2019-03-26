@@ -107,13 +107,13 @@ You can use them by php `hash` function:
 ```php
  hash ( string $algorithm , string $data [, bool $raw_output = FALSE ] ) : string
      
- // $algorithm may contain: sha224, sha256, sha384, sha512, sha512/224, sha512/256
+ // $algorithm may be: sha224, sha256, sha384, sha512, sha512/224, sha512/256
  // or other $algorithms that exists in hash_algos() function
 ```
 
 
 
-**When to use it**
+**When to use it?**
 
 They are general purpose hash functions. They are good only for non-security cases, e.g. generating random string for file names. 
 
@@ -126,8 +126,6 @@ Similar to SHA1 and MD5, you should not use them for security cases such as hash
 
 
 Other resources:
-
-Sources:
 
 https://searchsecurity.techtarget.com/definition/MD5
 
