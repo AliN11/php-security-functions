@@ -63,6 +63,10 @@ As php.net says, it is not recommended to use md5 to secure passwords:
 
 
 
+<br>
+
+
+
   ## SHA1
 
 **What is it?**
@@ -85,11 +89,15 @@ The optional `$raw_output` is similar to [MD5](https://github.com/AliN11/php-sec
   ```php
 $str = 'I love you';
 
-$hash = md5($str); // ce48c9870c7ae19796438aed65458c8bdc335157
-$hash = md5($str, true); // �HɇzᗖC��eE���3QW
+$hash = sha1($str); // ce48c9870c7ae19796438aed65458c8bdc335157
+$hash = sha1($str, true); // �HɇzᗖC��eE���3QW
   ```
 
-<br><br>
+
+
+<br>
+
+
 
 **When to use it**
 
@@ -109,11 +117,17 @@ Similar to [MD5](https://github.com/AliN11/php-security-functions#md5), it is no
 
 
 
+<br>
+
+
+
 ## SHA2 Family
 
 **What is it?**
 
-SHA-2 (Secure Hash Algorithm 2) is a set of cryptographic hash functions. The SHA-2 family consists of six hash functions that are 224, 256, 384 or 512 bits: SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224, SHA-512/256. [🔗](https://en.wikipedia.org/wiki/SHA-2)
+SHA-2 (Secure Hash Algorithm 2) is a set of cryptographic hash functions. The SHA-2 family consists of six hash functions that are 224, 256, 384 or 512 bits:
+
+ SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224, SHA-512/256. [🔗](https://en.wikipedia.org/wiki/SHA-2)
 
 They are **one-way** cryptographic function that accept a message of **any length** as input and return as output a **fixed-length** digest value.
 
@@ -123,12 +137,14 @@ They are **one-way** cryptographic function that accept a message of **any lengt
 
 
 
-| Function | Output Length (Bits) |
-| -------- | -------------------- |
-| SHA-224  | 224                  |
-| SHA-256  | 256                  |
-| SHA-384  | 384                  |
-| SHA-512  | 512                  |
+| Function    | Output Length (Bits) |
+| ----------- | -------------------- |
+| SHA-224     | 224                  |
+| SHA-256     | 256                  |
+| SHA-384     | 384                  |
+| SHA-512     | 512                  |
+| SHA-512/224 | 224                  |
+| SHA-512/256 | 256                  |
 
 
 
@@ -168,6 +184,10 @@ They are general purpose hash functions. They are good only for non-security cas
 Similar to SHA1 and MD5, you should not use them for security cases such as hashing sensitive data. 
 
 > General-purpose hashes have been obsolete for passwords for over a decade. The issue is that they're fast, and passwords have low entropy, meaning brute-force is very easy with any general-purpose hash. You need to use a function which is deliberately slow, like PBKDF2, bcrypt, or scrypt.  [🔗](https://security.stackexchange.com/a/90065/102970)
+
+
+
+<br><br>
 
 
 
