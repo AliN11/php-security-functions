@@ -12,13 +12,13 @@ I'll answer these questions for each items:
 
 
   ## MD5
-
 **What is it?**
 
 It is a **one-way** cryptographic function that accepts a message of **any length** as input and returns as output a **fixed-length** (128 bit) digest value to be used for authenticating the original message.
 
 
-</br>
+<br>
+
 **How to use it?**
 
   ```php
@@ -34,14 +34,15 @@ If the optional `$raw_output` is set to true, the plain binary string of the has
   $hash = md5($str, true); // ����Zn�������γ
   ```
 
-</br>
+<br>
+<br>
 
 **When to use it?**
 
 For non-security cases, e.g. generating random string for file names. 
 
 
-</br>
+
 **When not to use it?**
 
 As php.net says, it is not recommended to use md5 to secure passwords:
@@ -58,6 +59,7 @@ As php.net says, it is not recommended to use md5 to secure passwords:
 
 It is a **one-way** cryptographic function that accepts a message of **any length** as input and returns as output a **fixed-length** (160 bit) digest value to be used for authenticating the original message. It is more secure but slower than MD5
 
+<br><br>
 
 **How to use it?**
 
@@ -73,6 +75,7 @@ $hash = md5($str); // ce48c9870c7ae19796438aed65458c8bdc335157
 $hash = md5($str, true); // �HɇzᗖC��eE���3QW
   ```
 
+<br><br>
 
 **When to use it**
 
@@ -80,6 +83,7 @@ For non-security cases, e.g. generating random string for file names.
 
 Not all hash uses are security-related. Git uses SHA1 to cheaply distinguish between objects. In that case, because the possibility of collision between two documents is incredibly small with SHA1, there really is no justification for the additional space requirement of SHA512 when SHA1 is more than suitable for the task. [🔗](https://stackoverflow.com/a/2640600/3578287) [🔗](https://stackoverflow.com/questions/2640566/why-use-sha1-for-hashing-secrets-when-sha-512-is-more-secure#comment2655203_2640566)
 
+<br><br>
 
 **When not to use it?**
 
@@ -95,6 +99,7 @@ SHA-2 (Secure Hash Algorithm 2) is a set of cryptographic hash functions. The SH
 
 They are **one-way** cryptographic function that accept a message of **any length** as input and return as output a **fixed-length** digest value.
 
+<br><br>
 
 **How to use it?**
 
@@ -107,11 +112,13 @@ You can use them by php `hash` function:
  // or other $algorithms that exists in hash_algos() function
 ```
 
+<br><br>
 
 **When to use it?**
 
 They are general purpose hash functions. They are good only for non-security cases, e.g. generating random string for file names. 
 
+<br><br>
 
 **When not to use it?**
 
