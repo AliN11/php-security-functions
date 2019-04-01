@@ -1,6 +1,6 @@
   # PHP Security Functions
 
-*Updating*
+*Updating...*
 
 A complete guide to PHP hash and encryption functions
 
@@ -193,7 +193,7 @@ Similar to SHA1 and MD5, you should not use them for security cases such as hash
 
 
 
-*Other functions comming soon ...*
+*Other functions coming soon ...*
 
 Other resources:
 
