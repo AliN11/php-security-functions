@@ -189,7 +189,67 @@ Similar to SHA1 and MD5, you should not use them for security cases such as hash
 
 
 
-<br><br>
+<br>
+
+
+
+
+## Bcrypt
+
+**What is it?**
+
+Bcrypt is a password hashing function. Bcrypt is an adaptive function: over time, the iteration count can be increased to make it slower, so it remains resistant to brute-force search attacks even with increasing computation power. [🔗](https://en.wikipedia.org/wiki/Bcrypt)
+
+Alert: When using bcrypt you should be aware that it limits your maximum password length to 50-72 bytes.
+
+
+
+<br>
+
+
+
+**How to use it?**
+
+```php
+$options = [
+    'cost' => 12,
+];
+
+password_hash("password", PASSWORD_BCRYPT, $options);
+```
+
+This will always result in a hash using the `$2y$` crypt format, which is always 60 characters wide. 
+
+As [php.net](https://www.php.net/manual/en/function.password-hash.php) says:
+
+It is strongly recommended that you do not generate your own salt for this function. It will create a secure salt automatically for you if you do not specify one. Providing the salt option in PHP 7.0 will generate a deprecation warning. Support for providing a salt manually may be removed in a future PHP release.   
+
+It is recommended that you test this function on your servers, and adjust the cost parameter 
+so that execution of the function takes less than 100 milliseconds on interactive systems. See example #3 in above link.
+
+
+
+<br>
+
+
+
+**When to use it?**
+
+When security matters. When you would have uncrackable passwords.
+
+
+
+<br>
+
+
+
+**When not to use it?**
+
+Bcrypt takes time and resources to generate (in comparison to MD5, SHA1, etc.). You can simply see the performance of generating Bcrypt vs SHA1 in a `for` loop. So if you would hash a string in which security doesn't matter, do not use Bcrypt. Use fast hashing algorithms.
+
+
+
+<br>
 
 
 
@@ -205,3 +265,6 @@ https://stackoverflow.com/questions/2640566/why-use-sha1-for-hashing-secrets-whe
 
 https://en.wikipedia.org/wiki/SHA-2
 
+https://www.mscharhag.com/software-development/bcrypt-maximum-password-length
+
+https://security.stackexchange.com/questions/39849/does-bcrypt-have-a-maximum-password-length
