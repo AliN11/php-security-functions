@@ -188,10 +188,7 @@ Similar to SHA1 and MD5, you should not use them for security cases such as hash
 > General-purpose hashes have been obsolete for passwords for over a decade. The issue is that they're fast, and passwords have low entropy, meaning brute-force is very easy with any general-purpose hash. You need to use a function which is deliberately slow, like PBKDF2, bcrypt, or scrypt.  [🔗](https://security.stackexchange.com/a/90065/102970)
 
 
-
 <br>
-
-
 
 
 ## Bcrypt
@@ -218,14 +215,14 @@ $options = [
 password_hash("password", PASSWORD_BCRYPT, $options);
 ```
 
-This will always result in a hash using the `$2y$` crypt format, which is always 60 characters wide. 
+This will always result in a hash using the `$2y$` crypt format, which is always 60 characters wide. `cost` parameter is used here to define how many iteration over the password should be performed. Higher cost, higher security, higher execution time.
 
 As [php.net](https://www.php.net/manual/en/function.password-hash.php) says:
 
 It is strongly recommended that you do not generate your own salt for this function. It will create a secure salt automatically for you if you do not specify one. Providing the salt option in PHP 7.0 will generate a deprecation warning. Support for providing a salt manually may be removed in a future PHP release.   
 
 It is recommended that you test this function on your servers, and adjust the cost parameter 
-so that execution of the function takes less than 100 milliseconds on interactive systems. See example #3 in above link.
+so that execution of the function takes less than 100 milliseconds on interactive systems. See example #3 in the above link.
 
 
 
@@ -248,8 +245,12 @@ When security matters. When you would have uncrackable passwords.
 Bcrypt takes time and resources to generate (in comparison to MD5, SHA1, etc.). You can simply see the performance of generating Bcrypt vs SHA1 in a `for` loop. So if you would hash a string in which security doesn't matter, do not use Bcrypt. Use fast hashing algorithms.
 
 
-
 <br>
+
+## Argon2
+
+**What is it?**
+
 
 
 
