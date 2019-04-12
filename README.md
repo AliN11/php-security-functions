@@ -251,12 +251,25 @@ Bcrypt takes time and resources to generate (in comparison to MD5, SHA1, etc.). 
 
 **What is it?**
 
+Argon2 is a password-hashing function that can be used to hash passwords for credential storage, key derivation, or other applications.
+
+Argon2 has three variants: Argon2i, Argon2d, and Argon2id.
+
+Argon2d is faster and uses data-depending memory access, which makes it highly resistant against GPU cracking attacks and suitable for applications with no threats from side-channel timing attacks (eg. cryptocurrencies). 
+
+Argon2i uses data-independent memory access, which is preferred for password hashing and password-based key derivation, but it is slower as it makes more passes over the memory to protect from tradeoff attacks
+
+Argon2id is a hybrid of Argon2i and Argon2d, using a combination of data-depending and data-independent memory accesses, which gives some of Argon2i's resistance to side-channel cache timing attacks and much of Argon2d's resistance to GPU cracking attacks.  [🔗](https://github.com/p-h-c/phc-winner-argon2)
 
 
 
 *Other functions coming soon ...*
 
-Other resources:
+
+
+Resources:
+
+https://github.com/p-h-c/phc-winner-argon2
 
 https://searchsecurity.techtarget.com/definition/MD5
 
