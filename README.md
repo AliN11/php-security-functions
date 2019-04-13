@@ -245,7 +245,10 @@ When security matters. When you would have uncrackable passwords.
 Bcrypt takes time and resources to generate (in comparison to MD5, SHA1, etc.). You can simply see the performance of generating Bcrypt vs SHA1 in a `for` loop. So if you would hash a string in which security doesn't matter, do not use Bcrypt. Use fast hashing algorithms.
 
 
+
 <br>
+
+
 
 ## Argon2
 
@@ -263,11 +266,58 @@ Argon2id is a hybrid of Argon2i and Argon2d, using a combination of data-dependi
 
 
 
+<br>
+
+
+
+**How to use it?**
+
+```php
+$options = ['memory_cost' => 2048, 'time_cost' => 4, 'threads' => 3];
+
+// PHP 7.2.0+
+password_hash("password", PASSWORD_ARGON2I, $options); // $argon2i$v=19$m=1024,t=2,p=2$dVBCdG9qbTdkN3dvSnpIcw$wXTxsa/LKAJGwk3+ZWXgfEx66Vs4R0JAMm7i3PNJ2wg
+
+
+// PHP 7.3.0+
+password_hash("password", PASSWORD_ARGON2ID, $options); // $argon2id$v=19$m=1024,t=2,p=2$aERwOTFDY2lPNUJZRDBoYw$VI2gLlJLzQZD3r9tYGszvN6uj2PZVuUv6Ukp7gcJ+dw
+```
+
+- `memory_cost` - Maximum memory (in bytes) that may be used to compute the Argon2 hash (default 1024)
+- `time_cost` - Maximum amount of time it may take to compute the Argon2 hash (default 2)
+- `threads` - Number of threads to use for computing the Argon2 hash (default 2)
+
+<br>
+
+
+
+**When to use it?**
+
+Argon2i uses data-independent memory access. It is slow because it makes more passes over the memory to protect from trade off attacks. It is highly recommended for password hashing and password-based key derivation.
+
+
+
+<br>
+
+
+
+**When not to use it?**
+
+As I described in [Bcrypt](https://github.com/AliN11/php-security-functions#bcrypt) section, if you would hash something in which security doesn't matter, do not use Argon2. Use fast hashing algorithms instead.
+
+
+
+<br>
+
+
+
 *Other functions coming soon ...*
 
 
 
 Resources:
+
+https://stackoverflow.com/a/47602045/3578287
 
 https://github.com/p-h-c/phc-winner-argon2
 
