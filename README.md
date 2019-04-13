@@ -276,11 +276,11 @@ Argon2id is a hybrid of Argon2i and Argon2d, using a combination of data-dependi
 $options = ['memory_cost' => 2048, 'time_cost' => 4, 'threads' => 3];
 
 // PHP 7.2.0+
-password_hash("password", PASSWORD_ARGON2I, $options); // $argon2i$v=19$m=1024,t=2,p=2$dVBCdG9qbTdkN3dvSnpIcw$wXTxsa/LKAJGwk3+ZWXgfEx66Vs4R0JAMm7i3PNJ2wg
+password_hash("password", PASSWORD_ARGON2I, $options); // $argon2i$v=19$m=2048,t=4,p=3$dVBCdG9qbTdkN3dvSnpIcw$wXTxsa/LKAJGwk3+ZWXgfEx66Vs4R0JAMm7i3PNJ2wg
 
 
 // PHP 7.3.0+
-password_hash("password", PASSWORD_ARGON2ID, $options); // $argon2id$v=19$m=1024,t=2,p=2$aERwOTFDY2lPNUJZRDBoYw$VI2gLlJLzQZD3r9tYGszvN6uj2PZVuUv6Ukp7gcJ+dw
+password_hash("password", PASSWORD_ARGON2ID, $options); // $argon2id$v=19$m=2048,t=4,p=3$aERwOTFDY2lPNUJZRDBoYw$VI2gLlJLzQZD3r9tYGszvN6uj2PZVuUv6Ukp7gcJ+dw
 ```
 
 - `memory_cost` - Maximum memory (in bytes) that may be used to compute the Argon2 hash (default 1024)
